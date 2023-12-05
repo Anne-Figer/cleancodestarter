@@ -17,7 +17,13 @@ class Chance {
     }
 
     isEqual(chance) {
-        return chance.getLikelihood() === this.likelihood;
+        return (chance.getLikelihood() - this.likelihood) < 10e10 ;
+    }
+
+    and(chance) {
+        let result = new Chance(this.likelihood * chance.getLikelihood());
+        console.log(result)
+        return result
     }
 
 }
